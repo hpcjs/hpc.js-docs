@@ -24,7 +24,7 @@ npm install hpc.js
 
 ## Example Code
 
-This guide is aimed at people who are unfamiliar with GPU compute, so if any part of this code looks foreign to you, head on over to [Introduction to GPU Compute](../gpu-compute-introduction). But, if you're already comfortable with JavaScript and existing GPU compute languages like CUDA, GLSL, or WGSL, this should tell you everything you need to know.
+This guide is aimed at people who are unfamiliar with GPU compute, so if any part of this code looks foreign to you, head on over to [GPU Compute Intro](gpu-compute-intro). But, if you're already comfortable with JavaScript and existing GPU compute languages like CUDA, GLSL, or WGSL, this should tell you everything you need to know.
 
 ```ts
 // Program that doubles each number in a GPU buffer
