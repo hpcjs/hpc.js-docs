@@ -84,16 +84,20 @@ const gpu = new GPUInterface({
 
 **Must be called before any other methods.**
 
-Prepares the `GPUInterface` and required resources on the GPU. [Documentation here](/).
+Prepares the `GPUInterface` and required resources on the GPU. [Documentation here](initialize).
 
 ### `createKernel`
 
-Converts a given JavaScript/TypeScript function into GPU code. [Documentation here](/).
+Converts a given JavaScript/TypeScript function into GPU code. [Documentation here](createkernel).
 
 ### `setUniforms`
 
-Accepts an object containing any combination of uniform variables, and writes them to the GPU. [Documentation here](/).
+Accepts an object containing any combination of uniform variables, and writes them to the GPU. [Documentation here](setuniforms).
 
 ### `readBuffer`
 
-Reads a GPU buffer into CPU memory. [Documentation here](/).
+Reads a GPU buffer into CPU memory. [Documentation here](readbuffer).
+
+### `copyBuffer`
+
+Copies the contents of one GPU buffer into another. [Documentation here](copybuffer).

@@ -77,7 +77,7 @@ const config = {
             label: 'Tutorial',
           },
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/hpcjs/hpc.js',
             label: 'GitHub',
             position: 'right',
           },
@@ -117,12 +117,16 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/hpcjs/hpc.js',
+              },
+              {
+                label: 'Docs',
+                href: 'https://github.com/hpcjs/hpc.js-docs',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Ethan Lipson`,
       },
       prism: {
         theme: lightCodeTheme,
