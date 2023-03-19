@@ -18,6 +18,7 @@ type GPUInterfaceOptions = {
   buffers?: { name: string; size: GPUBufferSize; initialData?: GPUBufferData };
   uniforms?: { [key: string]: number };
   canvas?: HTMLCanvasElement;
+  useCpu?: boolean;
 };
 ```
 
@@ -47,10 +48,14 @@ This parameter lets you pass a canvas to the `GPUInterface`, enabling pixel rend
 
 If the canvas is provided, the `inputs.funcs.setPixel` function becomes available from within the kernel, as well as `GPUInterface.updateCanvas`. With these tools, you can use GPU compute to create magnificent, dynamic illustrations.
 
+### `useCpu`
+
+This parameter lets you control whether your kernel code runs on the CPU by default. This is more for performance testing and debugging, as it makes little sense to use a GPU acceleration library for CPU code! But since HPC.js offers automatic CPU fallback, it's important to test.
+
 ## Usage
 
 ```ts
-import GPUInterface from 'hpc.js';
+import GPUInterface, { vec2 } from 'hpc.js';
 
 const thecanvas = document.querySelector('canvas')!;
 const gpu = new GPUInterface({
@@ -70,13 +75,22 @@ const gpu = new GPUInterface({
     },
   ],
   uniforms: {
-    mouseX: 100,
-    mouseY: 50,
+    mousePos: vec2(0, 0),
     temperature: 30,
   },
   canvas: thecanvas,
 });
 ```
+
+## Properties
+
+### `isInitialized`
+
+Stores whether or not the `GPUInterface` has been initialized.
+
+### `backendType`
+
+Stores the backend type of the `GPUInterface`. If uninitialized, this returns `'uninitialized'`. Otherwise it returns `'gpu` if a GPU was found and `'cpu'` if the CPU fallback was enabled or if `useCpu: true` was selected in the constructor.
 
 ## Methods
 
@@ -101,3 +115,7 @@ Reads a GPU buffer into CPU memory. [Documentation here](readbuffer).
 ### `copyBuffer`
 
 Copies the contents of one GPU buffer into another. [Documentation here](copybuffer).
+
+### `updateCanvas`
+
+Paints the canvas with the pixels specified by `inputs.canvas.setPixel` from kernel code. [Documentation here](updatecanvas)

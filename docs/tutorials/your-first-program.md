@@ -62,7 +62,7 @@ Now, let's get to writing some GPU code!
 In GPU computing, a function that runs on the GPU is known as a _kernel_. Creating a kernel with HPC.js is incredibly simple.
 
 ```ts
-const kernel = gpu.createKernel(/* kernel code */);
+const kernel = await gpu.createKernel(/* kernel code */);
 ```
 
 And to run the kernel:
@@ -78,7 +78,7 @@ Easy! But how do we write the kernel code? Well, the power of HPC.js is that you
 We want to write a kernel that doubles a single number in the list, and then runs that kernel once for each number. `createKernel` accepts kernel code in the form of a function, like so:
 
 ```ts
-const kernel = gpu.createKernel(inputs => {
+const kernel = await gpu.createKernel(inputs => {
   /* kernel code */
 });
 ```
@@ -86,7 +86,7 @@ const kernel = gpu.createKernel(inputs => {
 The `inputs` object contains information relevant to our kernel. We care about two things in this object, `inputs.buffers` and `inputs.threadId`. The `inputs.buffers` object gives us references to the buffers we specified in the constructor, namely `'mybuffer'`. And since our kernel will be executed four times, the `inputs.threadId` object tells us which ID our invocation is assigned.
 
 ```ts
-const kernel = gpu.createKernel(inputs => {
+const kernel = await gpu.createKernel(inputs => {
   const index = inputs.threadId.x;
   inputs.buffers.mybuffer[index] *= 2;
 });
@@ -112,7 +112,7 @@ const gpu = new GPUInterface({
 });
 await gpu.initialize();
 
-const kernel = gpu.createKernel(inputs => {
+const kernel = await gpu.createKernel(inputs => {
   const index = inputs.threadId.x;
   inputs.buffers.mybuffer[index] *= 2;
 });
@@ -145,7 +145,7 @@ const gpu = new GPUInterface({
 });
 await gpu.initialize();
 
-const kernel = gpu.createKernel(inputs => {
+const kernel = await gpu.createKernel(inputs => {
   const index = inputs.threadId.x;
   inputs.buffers.mybuffer[index] *= 2;
 });

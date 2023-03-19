@@ -8,6 +8,8 @@ Given a JavaScript/TypeScript function, converts it into GPU code and returns a 
 
 Accepts a single function parameter describing the kernel. Documentation on what can and can't be done in the kernel can be found [here](/).
 
+Note: this is an `async` method.
+
 ## Usage
 
 ```ts
@@ -22,7 +24,7 @@ const gpu = new GPUInterface({
 
 await gpu.initialize();
 
-const kernel = gpu.createKernel(inputs => {
+const kernel = await gpu.createKernel(inputs => {
   const index = inputs.threadId.x;
   inputs.buffers.ascending[index] = index;
 });

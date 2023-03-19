@@ -113,10 +113,10 @@ const config = {
             ],
           },
           {
-            title: 'More',
+            title: 'GitHub',
             items: [
               {
-                label: 'GitHub',
+                label: 'Library',
                 href: 'https://github.com/hpcjs/hpc.js',
               },
               {
