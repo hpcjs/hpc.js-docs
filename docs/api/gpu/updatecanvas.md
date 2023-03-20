@@ -22,13 +22,10 @@ const kernel = await gpu.createKernel(inputs => {
   const pixel = inputs.threadId.xy;
   const size = inputs.canvas.size;
 
-  // prettier-ignore
-  const color = vec3(
-    pixel.x / size.x * 255,
-    pixel.y / size.y * 255,
-    0
-  );
-  inputs.canvas.setPixel(pixel, color);
+  const r = (pixel.x / size.x) * 255;
+  const g = (pixel.y / size.y) * 255;
+  const b = 0;
+  inputs.canvas.setPixel(pixel, r, g, b);
 });
 
 kernel.run(canvas.width, canvas.height);

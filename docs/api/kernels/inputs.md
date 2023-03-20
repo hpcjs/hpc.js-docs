@@ -62,7 +62,7 @@ To get the size of a buffer, simply use the `dim` function imported from `hpc.js
 
 This object contains references to the uniforms specified in the `GPUInterface` constructor. These variables are the same for all threads within a single `kernel.run()` call, so they tend to be more "universal". For example, we might include mouse position, timestamp, or keys pressed as uniforms. While it would be possible to use buffers alone and avoid uniforms, changing a uniform is much faster than changing a buffer, so if you're frequently updating variables from the CPU, look to use a uniform.
 
-Because uniforms are, well, _uniform_ across all threads, they cannot be changed from within the kernel. They must be updated through `GPUInterface.updateUniform()`.
+Because uniforms are, well, _uniform_ across all threads, they cannot be changed from within the kernel. They must be updated through `GPUInterface.setUniforms()`.
 
 ### Example
 
@@ -100,15 +100,13 @@ You may notice there are four overloads for this method. Choose whichever best s
 
 ```ts
 const kernel = await gpu.createKernel(inputs => {
-  const width = inputs.canvas.width;
-  const height = inputs.canvas.height;
-  const x = inputs.threadId.x;
-  const y = inputs.threadId.y;
+  const pixel = inputs.threadId.xy;
+  const size = inputs.canvas.size;
 
-  const r = (x / width) * 255;
-  const g = (y / height) * 255;
+  const r = (pixel.x / size.x) * 255;
+  const g = (pixel.y / size.y) * 255;
   const b = 0;
-  inputs.canvas.setPixel(x, y, r, g, b);
+  inputs.canvas.setPixel(pixel, r, g, b);
 });
 
 kernel.run(canvas.width, canvas.height);

@@ -163,6 +163,6 @@ When you read a buffer using `gpu.readBuffer`, the buffer is put into a _mapped_
 
 ## Conclusion
 
-And that's it! In 12 lines of code, we've written a fully functional GPU program. From here, we encourage you the begin tinkering with the library and creating more substantial projects.
+And that's it! In 12 lines of code, we've written a fully functional GPU program. From here, we encourage you to begin tinkering with the library and creating more substantial projects.
 
 If you want to learn more advanced features of HPC.js, we suggest watching our tutorial on creating a heat simulation [here](/). In this video, we cover user interactivity, graphics, and uniform variables, so be sure to check it out!
