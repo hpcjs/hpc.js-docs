@@ -28,3 +28,11 @@ await gpu.initialize();
 
 // go crazy
 ```
+
+## Chaining
+
+`GPUInterface.initialize()` returns a reference to `this`, meaning you can chain it into the constructor for shorter code. If this syntax seems bizarre, note that `new` binds tighter than member access in JavaScript, so the execution order makes sense.
+
+```ts
+const gpu = await new GPUInterface({ ... }).initialize();
+```

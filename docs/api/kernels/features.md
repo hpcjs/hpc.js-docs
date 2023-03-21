@@ -17,19 +17,20 @@ Not all JavaScript syntax is supported. So, what are we allowed to do?
   - Arithmetic: `+ - * / % **`
   - Comparisons: `== != > < >= <=`
   - Ternary: `?:`
+  - These are just examples, almost everything is here!
 - Most functions from the `Math` library, including `Math.random`
 
 What you can't do:
 
 - Create objects, including destructuring syntax with `inputs`
 - Use string variables (these may be supported in a future version)
-- Directly include external variables (if you want to do this, use a uniform) and functions
-- Browser interaction functions, like anything under `document`, obviously
+- Directly include external variables (if you want to do this, use a uniform) or functions
+- Browser interaction functions, like anything under `document`
 - `console.log` (and other `console` methods)
 
-Note: if the absence of `console.log` is alarming, we suggest creating a `debug` buffer, writing to it, and then logging it from outside the kernel with `readBuffer`.
+If the absence of `console.log` is alarming, we suggest creating a `debug` buffer, writing to it, and then logging it from outside the kernel with `readBuffer`.
 
-GPU compute is almost always used to speed up math operations, which are entirely supported. Besides that, it makes no sense to do most of these operations in a GPU kernel, so it's not at all an issue. For example, `Array.map` is a really nice function to use, but passing a function and then repeatedly applying it is definitely much slower than just writing a `for` loop.
+GPU compute is almost always used to speed up math operations, which are entirely supported. Besides that, it makes no sense to do most of these operations in a GPU kernel, so it's not at all an issue. For example, `Array.map` is certainly convenient, but passing a function and then repeatedly applying it is definitely much slower than just writing a `for` loop.
 
 ## Examples
 

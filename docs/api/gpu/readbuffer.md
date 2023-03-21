@@ -24,7 +24,7 @@ const gpu = new GPUInterface({
 
 await gpu.initialize();
 
-// calculate non-trivial zeroes of the zeta function or whatever
+// calculate non-trivial zeroes of the zeta function
 
 const buffer = await gpu.readBuffer('result');
 const result = Array.from(buffer);
