@@ -46,9 +46,9 @@ const kernel = await gpu.createKernel(inputs => {
   function read(index = types.number) {
     const step = inputs.uniforms.step;
     if (step % 2 === 0) {
-      return inputs.buffers.data1[step];
+      return inputs.buffers.data1[index];
     } else {
-      return inputs.buffers.data2[step];
+      return inputs.buffers.data2[index];
     }
   }
 

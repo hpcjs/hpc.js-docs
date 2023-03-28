@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # Functions
 
 HPC.js lets you define custom functions. You can do whatever you want with them, but there are four minor caveats:
