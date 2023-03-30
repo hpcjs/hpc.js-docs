@@ -184,14 +184,14 @@ canvas.addEventListener('mousemove', e => {
 This is the final piece of the puzzle. We need to use `requestAnimationFrame` to draw just like in typical JavaScript canvas applications, and it's the same as always. To update the canvas after setting the pixels, we simply use `gpu.updateCanvas()`.
 
 ```ts
-const draw = () => {
+const loop = () => {
   kernel.run(canvas.width, canvas.height);
   gpu.updateCanvas();
 
-  requestAnimationFrame(draw);
+  requestAnimationFrame(loop);
 };
 
-draw();
+loop();
 ```
 
 ## Conclusion

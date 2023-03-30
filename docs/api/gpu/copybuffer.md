@@ -6,7 +6,7 @@ sidebar_position: 5
 
 Copies the contents of one GPU buffer to another.
 
-If the sizes/dimensions of the two buffers don't match, an exception is thrown.
+If the sizes/dimensions or data types of the two buffers don't match, an exception is thrown.
 
 If a buffer name is used that wasn't specified in the `GPUInterface` constructor, an exception is thrown.
 

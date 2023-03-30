@@ -36,7 +36,7 @@ const gpu = new GPUInterface({
 });
 await gpu.initialize();
 
-const double = gpu.createKernel(inputs => {
+const double = await gpu.createKernel(inputs => {
   const index = inputs.threadId.x;
   inputs.buffers.mybuffer[index] *= 2;
 });

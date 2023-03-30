@@ -6,7 +6,7 @@ sidebar_position: 6
 
 Given a JavaScript/TypeScript function, converts it into GPU code and returns a `GPUKernel` object that can be run with `GPUKernel.run`.
 
-Accepts a single function parameter describing the kernel. Documentation on what can and can't be done in the kernel can be found [here](../kernels/inputs).
+Accepts a single function parameter describing the kernel. Documentation on kernel inputs can be found [here](../kernels/inputs), and information on what can and can't be done inside kernels can be found [here](../kernels/features).
 
 Note: this is an `async` method.
 
