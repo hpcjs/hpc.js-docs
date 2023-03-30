@@ -99,10 +99,10 @@ Before doing any work, let's see if we can avoid it. If the cell is close to the
 ```ts
 if (mouse.dist(cell) < radius) {
   if (button === 1) {
-    inputs.buffers.heatcopy[cell] = 1;
+    inputs.buffers.heatcopy[cell.x][cell.y] = 1;
     return;
   } else if (button === 2) {
-    inputs.buffers.heatcopy[cell] = 0;
+    inputs.buffers.heatcopy[cell.x][cell.y] = 0;
     return;
   }
 }
@@ -115,19 +115,19 @@ const current = inputs.buffers.heat[cell];
 let delta = 0;
 
 if (cell.x > 0) {
-  delta += inputs.buffers.heat[cell - vec2(1, 0)] - current;
+  delta += inputs.buffers.heat[cell.x - 1][cell.y] - current;
 }
 
 if (cell.x < size.x - 1) {
-  delta += inputs.buffers.heat[cell + vec2(1, 0)] - current;
+  delta += inputs.buffers.heat[cell.x + 1][cell.y] - current;
 }
 
 if (cell.y > 0) {
-  delta += inputs.buffers.heat[cell - vec2(0, 1)] - current;
+  delta += inputs.buffers.heat[cell.x][cell.y - 1] - current;
 }
 
 if (cell.y < size.y - 1) {
-  delta += inputs.buffers.heat[cell + vec2(0, 1)] - current;
+  delta += inputs.buffers.heat[cell.x][cell.y + 1] - current;
 }
 ```
 
@@ -135,7 +135,7 @@ Finally, we can write our updated heat value to `heatcopy`. We need to multiply 
 
 ```ts
 const updated = current + delta * 0.25;
-inputs.buffers.heatcopy[cell] = updated;
+inputs.buffers.heatcopy[cell.x][cell.y] = updated;
 ```
 
 And that's the diffusion kernel done! To copy the data back, we'll just use `GPUInterface.copyBuffer` later in the draw loop.
@@ -163,7 +163,7 @@ const cell = pixel.times(bufferSize.div(canvasSize));
 Then we just have to get the heat, scale to the range `0-255`, and set the color.
 
 ```ts
-const heat = inputs.buffers.heat[cell];
+const heat = inputs.buffers.heat[cell.x][cell.y];
 const color = vec3(heat * 255);
 
 inputs.canvas.setPixel(pixel, color);
