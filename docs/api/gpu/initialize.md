@@ -10,6 +10,14 @@ This function _must_ be called before any other methods on `GPUInterface`. If th
 
 Note: this method is `async`.
 
+## Arguments
+
+None
+
+## Exceptions
+
+None
+
 ## Usage
 
 ```ts

@@ -1,0 +1,8 @@
+{
+  "label": "GPUKernel",
+  "position": 4,
+  "link": {
+    "type": "doc",
+    "id": "gpukernel"
+  }
+}

@@ -6,7 +6,15 @@ sidebar_position: 3
 
 Updates uniform variables specified at `GPUInterface` creation. Uniforms can be of type `number`, `boolean`, `vec2`, `vec3`, or `vec4`.
 
-If a uniform name is included that wasn't specified in the constructor, an exception is thrown.
+## Arguments
+
+- `uniforms`
+  - Type: `Record<string, number | vec2 | vec3 | vec4 | boolean>`
+
+## Exceptions
+
+- Invalid uniform name
+- Incorrect uniform type
 
 ## Usage
 

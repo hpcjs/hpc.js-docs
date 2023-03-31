@@ -6,6 +6,14 @@ sidebar_position: 7
 
 If an `HTMLCanvasElement` is supplied in the constructor, `updateCanvas` paints the most recently updated pixels to the screen. If a pixel hasn't been painted, it is black by default. Pixels can be painted from the kernel using `inputs.canvas.setPixel`.
 
+## Arguments
+
+None
+
+## Exceptions
+
+- Canvas was not passed to the `GPUInterface` constructor.
+
 ## Usage
 
 ```ts

@@ -6,7 +6,7 @@ sidebar_position: 2
 
 `GPUInterface.createKernel` converts JavaScript/TypeScript code into a GPU kernel, but not all language features are supported. In practice, this hardly matters, since the main purpose of GPU compute is to accelerate math.
 
-## Syntax
+## Allowed Syntax
 
 Not all JavaScript syntax is supported. So, what are we allowed to do?
 
@@ -19,6 +19,8 @@ Not all JavaScript syntax is supported. So, what are we allowed to do?
   - Ternary: `?:`
   - These are just examples, almost everything is here!
 - Most functions from the `Math` library, including `Math.random`
+
+## Invalid Syntax
 
 What you can't do:
 

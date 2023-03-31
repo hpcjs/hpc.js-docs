@@ -16,7 +16,7 @@ In our examples, we call this object `inputs`, but you can call it anything you 
 
 ## `threadId`
 
-This is a `vec3` indicating the ID of the current kernel thread. Since GPU kernels may run millions of times, we need a way to differentiate each invocation, and the thread ID allows us to make this distinction. The components of `inputs.threadId` range from 0 up to, but not including, the number specified in `kernel.run()`. If a number isn't specified, it defaults to 0.
+This is a `vec3` indicating the ID of the current kernel thread. Since GPU kernels may run millions of times, we need a way to differentiate each invocation, and the thread ID allows us to make this distinction. The components of `inputs.threadId` range from 0 up to, but not including, the number specified in `kernel.run(x, y, z)`. If a number isn't specified, it defaults to 0.
 
 ### Example
 

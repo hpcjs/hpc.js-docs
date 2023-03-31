@@ -6,7 +6,20 @@ sidebar_position: 4
 
 Reads a buffer from GPU memory into CPU memory, returning a `Float32Array`.
 
-If a buffer name is used that wasn't specified in the `GPUInterface` constructor, an exception is thrown.
+:::warning
+
+Copying data from the GPU to the CPU is a costly operation (large buffers could take up to 10ms or even 100ms), which is why this method is async. This operation is even slower with [`useCpu`](gpuinterface#usecpu) enabled, since the data needs to be copied manually into a `Float32Array`, so avoid using this method in realtime applications if possible. For more information, see our article on [asynchronous execution](../../best-practices/asynchrnous-execution).
+
+:::
+
+## Arguments
+
+- `src`
+  - Type: `string`
+
+## Exceptions
+
+- Invalid buffer name
 
 Note: this is an `async` method.
 

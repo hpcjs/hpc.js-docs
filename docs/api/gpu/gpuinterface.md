@@ -6,7 +6,7 @@ sidebar_position: 1
 
 The main export of HPC.js. `GPUInterface` is an abstraction over WebGPU that makes working with the GPU far easier.
 
-## Parameters
+## Arguments
 
 The `GPUInterface` constructor accepts a configuration object parameter structured as follows:
 
@@ -152,4 +152,4 @@ Copies the contents of one GPU buffer into another. [Documentation here](copybuf
 
 ### `updateCanvas`
 
-Paints the canvas with the pixels specified by `inputs.canvas.setPixel` from kernel code. [Documentation here](updatecanvas)
+Paints the canvas with the pixels specified by `inputs.canvas.setPixel` from kernel code. [Documentation here](updatecanvas).

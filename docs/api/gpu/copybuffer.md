@@ -6,9 +6,18 @@ sidebar_position: 5
 
 Copies the contents of one GPU buffer to another.
 
-If the sizes/dimensions or data types of the two buffers don't match, an exception is thrown.
+## Arguments
 
-If a buffer name is used that wasn't specified in the `GPUInterface` constructor, an exception is thrown.
+- `src`
+  - Type: `string`
+- `dst`
+  - Type: `string`
+
+## Exceptions
+
+- Invalid buffer name
+- Data type mismatch
+- Size mismatch
 
 ## Usage
 

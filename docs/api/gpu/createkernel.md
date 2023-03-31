@@ -10,6 +10,22 @@ Accepts a single function parameter describing the kernel. Documentation on kern
 
 Note: this is an `async` method.
 
+## Arguments
+
+- `source`
+  - Type: `(inputs: GPUKernelInputs) => void`
+    - This type is inferred automatically, so no need to explicitly annotate it
+
+## Exceptions
+
+- Typical JavaScript compilation errors
+  - Syntax errors
+  - Invalid identifiers
+  - No overload found
+- Unsupported feature used (details [here](../kernels/features#invalid-syntax))
+- Unknown errors
+  - If this occurs, follow the instructions in [this article](/).
+
 ## Usage
 
 ```ts
