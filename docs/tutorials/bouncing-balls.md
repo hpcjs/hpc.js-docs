@@ -223,7 +223,7 @@ for (let x = -radius; x <= radius; x++) {
 Our main draw loop will proceed as follows: first we step the simulation, then we clear the screen and draw the balls, and finally update the canvas.
 
 ```ts
-const loop = async () => {
+const loop = () => {
   step.run(NUM_BALLS);
 
   clear.run(canvas.width, canvas.height);
